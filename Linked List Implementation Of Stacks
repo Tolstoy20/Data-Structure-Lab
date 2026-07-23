@@ -1,0 +1,43 @@
+class Node:
+    def __init__(data,value):
+        data.value = value
+        data.next = None
+
+class Stack:
+    def __init__(data):
+        data.top = None
+
+    def is_empty(data):
+        return data.top is None
+
+    def push(data,value):
+        new_node = Node(value)
+        new_node.next = data.top
+        data.top = new_node
+
+    def pop(data):
+        if data.is_empty():
+            return None
+        popped_value = data.top.value
+        data.top = data.top.next
+        return popped_value
+
+    def peek(data):
+        if data.is_empty():
+            return None
+        return data.top.value
+
+
+
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
+stack.push(5)
+
+print("Peek : ",stack.peek())
+
+stack.pop()
+print("Pop : ", stack.pop())
+print("Peek : ",stack.peek())
